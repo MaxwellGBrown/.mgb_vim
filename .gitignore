@@ -1,0 +1,13 @@
+# We're only holding on to specific files in .vim
+# Things like keep_view will store dirs (/view) in .vim
+.vim/*
+
+!.vim/plugins
+!.vim/autoload
+
+# Only save .vim/bundle, not the links inside it
+.vim/bundle/*
+!.vim/bundle/.gitkeep
+
+# Ignore the .swp files
+*.swp
