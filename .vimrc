@@ -157,7 +157,9 @@ au BufNewFile,BufRead *.mako set noexpandtab
 au BufNewFile,BufRead *.mako set autoindent
 
 " use this to match mako files with html syntax
-au BufNewFile,BufRead *.mako runtime! syntax/html.vim
+" au BufNewFile,BufRead *.mako runtime! syntax/html.vim
+au BufNewFile,BufRead *.mako set filetype=mako
+au! Syntax mako source ~/.vim/syntax/mako.vim
 
 " turn on omnicomplete for auto-finishing tags
 au BufNewFile,BufRead *.mako set omnifunc=htmlcomplete#CompleteTags
