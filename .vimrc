@@ -6,6 +6,8 @@ filetype plugin indent on
 set ruler
 set showcmd
 
+set nobomb
+
 filetype indent on
 
 " Below is a copy of restore_view.vim because I couldn't figure out how to
