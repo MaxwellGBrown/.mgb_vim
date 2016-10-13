@@ -5,7 +5,6 @@
 !.vim/plugins
 !.vim/autoload
 !.vim/syntax
-!.vim/vim_temp_files
 
 # Only save .vim/bundle, not the links inside it
 .vim/bundle/*

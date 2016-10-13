@@ -10,6 +10,13 @@ set nobomb
 
 filetype indent on
 
+" Set a common location for backups/temp files to avoid clutter
+set dir=~/.vim/vim_temp_files/swap//
+set backup
+set backupdir=~/.vim/vim_temp_files/backup/,~/tmp,.
+set undofile
+set undodir=~/.vim/vim_temp_files/undo/
+
 " Below is a copy of restore_view.vim because I couldn't figure out how to
 " load it with pathogen
 if exists("g:loaded_restore_view")
