@@ -1,6 +1,7 @@
 # We're only holding on to specific files in .vim
 # Things like keep_view will store dirs (/view) in .vim
 .vim/*
+.vim/vim_temp_files/*
 
 !.vim/plugins
 !.vim/autoload
