@@ -1,6 +1,7 @@
 " Load plugins in ~/.vim/activated
 execute pathogen#infect()
 syntax on
+filetype on
 filetype plugin indent on
 
 set ruler
@@ -187,7 +188,7 @@ au BufNewFile,BufRead *.jinja2 set autoindent
 
 " use this to match jinja2 files with html syntax
 " au BufNewFile,BufRead *.jinja2 runtime! syntax/html.vim
-au BufNewFile,BufRead *.jinja2 set filetype=jinja2
+au BufNewFile,BufRead *.jinja2 set filetype=jinja
 au! Syntax jinja2 source ~/.vim/syntax/jinja.vim
 
 " turn on omnicomplete for auto-finishing tags
