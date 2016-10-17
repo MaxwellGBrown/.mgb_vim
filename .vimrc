@@ -57,6 +57,7 @@ augroup END
 
 set viewoptions=cursor,folds,slash,unix
 
+
 " Python file formatting settings
 " ---------------------------------------------------------------
 
@@ -145,7 +146,6 @@ au FileType html inoremap </ </<C-X><C-O>
 " end HTML formatting ----------------------------------------------
 
 
-
 " CSS formatting ---------------------------------------------------
 "
 
@@ -153,7 +153,6 @@ au FileType html inoremap </ </<C-X><C-O>
 au FileType css inoremap <C-tab> <C-X><C-O>
 
 " end CSS formatting ----------------------------------------------
-
 
 
 " mako formatting --------------------------------------------------
@@ -203,7 +202,7 @@ au BufNewFile,BufRead *.jinja2 inoremap </ </<C-X><C-O>
 
 
 " .jsx formatting ------------------------------------------------------------
-"
+
 " autocomplete all the things that come in pairs!
 au BufNewFile,BufRead *.jsx inoremap ( ()<Esc>i
 au BufNewFile,BufRead *.jsx inoremap ) <c-r>=ClosePair(')')<CR>
@@ -214,10 +213,5 @@ au BufNewFile,BufRead *.jsx inoremap ] <c-r>=ClosePair(']')<CR>
 au BufNewFile,BufRead *.jsx inoremap " <c-r>=QuoteDelim('"')<CR>
 au BufNewFile,BufRead *.jsx inoremap ' <c-r>=QuoteDelim("'")<CR>
 
-" turn on omnicomplete for auto-finishing tags
-au BufNewFile,BufRead *.jsx set omnifunc=htmlcomplete#CompleteTags
-" Set </ to omni-complete tags
-au BufNewFile,BufRead *.jsx inoremap </ </<C-X><C-O>
-
-
+au BufNewFile,BufRead *.jsx let g:javascript_plugin_jsdoc=1
 " end .jsx formatting ---------------------------------------------------------
