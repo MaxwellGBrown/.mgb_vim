@@ -200,3 +200,24 @@ au BufNewFile,BufRead *.jinja2 set omnifunc=htmlcomplete#CompleteTags
 au BufNewFile,BufRead *.jinja2 inoremap </ </<C-X><C-O>
 
 " end jinja2 formatting ------------------------------------------------------
+
+
+" .jsx formatting ------------------------------------------------------------
+"
+" autocomplete all the things that come in pairs!
+au BufNewFile,BufRead *.jsx inoremap ( ()<Esc>i
+au BufNewFile,BufRead *.jsx inoremap ) <c-r>=ClosePair(')')<CR>
+au BufNewFile,BufRead *.jsx inoremap { {}<Esc>i
+au BufNewFile,BufRead *.jsx inoremap } <c-r>=ClosePair('}')<CR>
+au BufNewFile,BufRead *.jsx inoremap [ []<Esc>i
+au BufNewFile,BufRead *.jsx inoremap ] <c-r>=ClosePair(']')<CR>
+au BufNewFile,BufRead *.jsx inoremap " <c-r>=QuoteDelim('"')<CR>
+au BufNewFile,BufRead *.jsx inoremap ' <c-r>=QuoteDelim("'")<CR>
+
+" turn on omnicomplete for auto-finishing tags
+au BufNewFile,BufRead *.jsx set omnifunc=htmlcomplete#CompleteTags
+" Set </ to omni-complete tags
+au BufNewFile,BufRead *.jsx inoremap </ </<C-X><C-O>
+
+
+" end .jsx formatting ---------------------------------------------------------
