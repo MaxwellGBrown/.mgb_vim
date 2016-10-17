@@ -135,6 +135,7 @@ au FileType html set softtabstop=0
 au FileType html set shiftwidth=4
 au FileType html set noexpandtab
 au FileType html set autoindent
+au FileType html set wrap
 " au FileType html set textwidth=79
 
 " Vim's Omnicomplete (Ctrl-X) can complete closing html tags if they're 
@@ -165,6 +166,7 @@ au BufNewFile,BufRead *.mako set softtabstop=0
 au BufNewFile,BufRead *.mako set shiftwidth=4
 au BufNewFile,BufRead *.mako set noexpandtab
 au BufNewFile,BufRead *.mako set autoindent
+au BufNewFile,BufRead *.mako set wrap
 
 " use this to match mako files with html syntax
 " au BufNewFile,BufRead *.mako runtime! syntax/html.vim
@@ -184,6 +186,7 @@ au BufNewFile,BufRead *.jinja2 set tabstop=4
 au BufNewFile,BufRead *.jinja2 set softtabstop=0
 au BufNewFile,BufRead *.jinja2 set shiftwidth=4
 au BufNewFile,BufRead *.jinja2 set noexpandtab
+au BufNewFile,BufRead *.jinja2 set autoindent
 au BufNewFile,BufRead *.jinja2 set autoindent
 
 " use this to match jinja2 files with html syntax
