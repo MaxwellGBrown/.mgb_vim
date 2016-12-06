@@ -39,18 +39,9 @@ au FileType python set expandtab
 au FileType python set autoindent
 au FileType python set textwidth=79
 
-" makes backspaces stronger?
-" DOESN'T DO ANYTHING APPARENTLY
-" au FileType python set backspace=indent,eol,start
-
 " syntax highlighting
 au FileType python syntax on
 au FileType python let python_highlight_all=1
-
-" Sets default encoding to utf-8
-" bomb puts a marker to differentiate between UTF and UCS
-" au FileType python set encoding=utf-8
-" au FileType python set bomb
 
 " continue at the same indent level on a new line
 au FileType python set autoindent
@@ -66,26 +57,26 @@ au FileType python inoremap " <c-r>=QuoteDelim('"')<CR>
 au FileType python inoremap ' <c-r>=QuoteDelim("'")<CR>
 
 function ClosePair(char)
-	if getline('.')[col('.') - 1] == a:char
-		return "\<Right>"
-	else
-		return a:char
-	endif
+  if getline('.')[col('.') - 1] == a:char
+    return "\<Right>"
+  else
+    return a:char
+  endif
 endf
 
 function QuoteDelim(char)
-	let line = getline('.')
-	let col = col('.')
-	if line[col - 2] == "\\"
-		" Inserting a quoted quotation mark into the string
-		return a:char
-	elseif line[col - 1] == a:char && line[col - 2] != a:char
-		" Escaping out of a string
-		return "\<Right>"
-	else
-		" Starting a string
-		return a:char.a:char."\<Esc>i"
-	endif
+  let line = getline('.')
+  let col = col('.')
+  if line[col - 2] == "\\"
+    " Inserting a quoted quotation mark into the string
+    return a:char
+  elseif line[col - 1] == a:char && line[col - 2] != a:char
+    " Escaping out of a string
+    return "\<Right>"
+  else
+    " Starting a string
+    return a:char.a:char."\<Esc>i"
+  endif
 endf
 " end python formatting --------------------------------------------
 
@@ -207,7 +198,7 @@ au BufNewFile,BufRead *.json inoremap ' <c-r>=QuoteDelim("'")<CR>
 
 " autocomplete all the things that come in pairs!
 
-au BufNewFile,BufRead *.js set tabstop=4
+au BufNewFile,BufRead *.js set tabstop=2
 au BufNewFile,BufRead *.js set softtabstop=0
 au BufNewFile,BufRead *.js set expandtab
 
