@@ -87,8 +87,8 @@ au FileType python let python_highlight_all=1
 
 " Sets default encoding to utf-8
 " bomb puts a marker to differentiate between UTF and UCS
-au FileType python set encoding=utf-8
-au FileType python set bomb
+" au FileType python set encoding=utf-8
+" au FileType python set bomb
 
 " continue at the same indent level on a new line
 au FileType python set autoindent
@@ -204,6 +204,11 @@ au BufNewFile,BufRead *.jinja2 inoremap </ </<C-X><C-O>
 " .jsx formatting ------------------------------------------------------------
 
 " autocomplete all the things that come in pairs!
+
+au BufNewFile,BufRead *.jsx set tabstop=4
+au BufNewFile,BufRead *.jsx set softtabstop=0
+au BufNewFile,BufRead *.jsx set expandtab
+
 au BufNewFile,BufRead *.jsx inoremap ( ()<Esc>i
 au BufNewFile,BufRead *.jsx inoremap ) <c-r>=ClosePair(')')<CR>
 au BufNewFile,BufRead *.jsx inoremap { {}<Esc>i
@@ -215,3 +220,45 @@ au BufNewFile,BufRead *.jsx inoremap ' <c-r>=QuoteDelim("'")<CR>
 
 au BufNewFile,BufRead *.jsx let g:javascript_plugin_jsdoc=1
 " end .jsx formatting ---------------------------------------------------------
+
+" .json formatting ------------------------------------------------------------
+
+" autocomplete all the things that come in pairs!
+
+au BufNewFile,BufRead *.json set tabstop=4
+au BufNewFile,BufRead *.json set softtabstop=0
+au BufNewFile,BufRead *.json set expandtab
+au BufNewFile,BufRead *.json set autoindent
+
+au BufNewFile,BufRead *.json inoremap ( ()<Esc>i
+au BufNewFile,BufRead *.json inoremap ) <c-r>=ClosePair(')')<CR>
+au BufNewFile,BufRead *.json inoremap { {}<Esc>i
+au BufNewFile,BufRead *.json inoremap } <c-r>=ClosePair('}')<CR>
+au BufNewFile,BufRead *.json inoremap [ []<Esc>i
+au BufNewFile,BufRead *.json inoremap ] <c-r>=ClosePair(']')<CR>
+au BufNewFile,BufRead *.json inoremap " <c-r>=QuoteDelim('"')<CR>
+au BufNewFile,BufRead *.json inoremap ' <c-r>=QuoteDelim("'")<CR>
+" end .json formatting ---------------------------------------------------------
+
+
+" .jsx formatting ------------------------------------------------------------
+
+" autocomplete all the things that come in pairs!
+
+au BufNewFile,BufRead *.js set tabstop=4
+au BufNewFile,BufRead *.js set softtabstop=0
+au BufNewFile,BufRead *.js set expandtab
+
+au BufNewFile,BufRead *.js inoremap ( ()<Esc>i
+au BufNewFile,BufRead *.js inoremap ) <c-r>=ClosePair(')')<CR>
+au BufNewFile,BufRead *.js inoremap { {}<Esc>i
+au BufNewFile,BufRead *.js inoremap } <c-r>=ClosePair('}')<CR>
+au BufNewFile,BufRead *.js inoremap [ []<Esc>i
+au BufNewFile,BufRead *.js inoremap ] <c-r>=ClosePair(']')<CR>
+au BufNewFile,BufRead *.js inoremap " <c-r>=QuoteDelim('"')<CR>
+au BufNewFile,BufRead *.js inoremap ' <c-r>=QuoteDelim("'")<CR>
+
+au BufNewFile,BufRead *.js let g:javascript_plugin_jsdoc=1
+" end .jsx formatting ---------------------------------------------------------
+
+
