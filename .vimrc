@@ -11,8 +11,6 @@ set nobomb
 
 filetype indent on
 
-let g:syntastic_python_checkers=['flake8']
-
 " Set a common location for backups/temp files to avoid clutter
 set dir=~/.vim/vim_temp_files/swap//
 set backup
