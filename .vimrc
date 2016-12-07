@@ -19,6 +19,29 @@ set undofile
 set undodir=~/.vim/vim_temp_files/undo/
 
 
+" -----------------------------------------------------------------------------
+" Syntastic Settings
+" https://github.com/vim-syntastic/syntastic
+" -----------------------------------------------------------------------------
+
+" Syntastic Recommended Settings
+" ==============================
+" set statusline+=%#warningmsg#
+" set statusline+=%{SyntasticStatuslineFlag()}
+" set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+" let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+
+
+" My Syntastic Settings
+" =====================
+nmap <c-k> :lprevious <CR>
+nmap <c-j> :lnext <CR>
+
+
 " Import filetype-specific settings, which are split into separate files
 " within ./.vimrc_filetypes/
 let vimrc_dir = join(split(resolve(expand('<sfile>:p')), '/')[0:-2], '/')
