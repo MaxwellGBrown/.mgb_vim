@@ -1,5 +1,11 @@
-" Load plugins in ~/.vim/activated
-execute pathogen#infect()
+" =============================================================================
+" M   M  GGG  BBB      V   V IIIII M   M     V   V IIIII M   M RRR   CCC      
+" MM MM G     B  B     V   V   I   MM MM     V   V   I   MM MM R  R C         
+" M M M G GGG BBB      V   V   I   M M M     V   V   I   M M M RRR  C         
+" M   M G   G B  B      V V    I   M   M  ..  V V    I   M   M R R  C         
+" M   M  GGG  BBB  ___   V   IIIII M   M  ..   V   IIIII M   M R  R  CCC      
+" =============================================================================
+
 syntax on
 filetype on
 filetype plugin indent on
@@ -9,9 +15,16 @@ set showcmd
 
 set nobomb
 
-filetype indent on
+" -----------------------------------------------------------------------------
+" Pathogen
+" Load all plugins in ~/.vim/activated (which are links to ~/.vim/plugins
+execute pathogen#infect()
+" -----------------------------------------------------------------------------
 
-" Set a common location for backups/temp files to avoid clutter
+
+" -----------------------------------------------------------------------------
+" Store vim temporary files & backups in a common location
+" -----------------------------------------------------------------------------
 set dir=~/.vim/vim_temp_files/swap//
 set backup
 set backupdir=~/.vim/vim_temp_files/backup/,~/tmp,.
@@ -41,6 +54,10 @@ let g:syntastic_check_on_wq = 0
 nmap <c-k> :lprevious <CR>
 nmap <c-j> :lnext <CR>
 
+
+" -----------------------------------------------------------------------------
+" Filetype Specific Settings
+" -----------------------------------------------------------------------------
 
 " Import filetype-specific settings, which are split into separate files
 " within ./.vimrc_filetypes/
