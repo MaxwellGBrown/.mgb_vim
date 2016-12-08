@@ -59,9 +59,33 @@ let g:syntastic_check_on_wq = 0
 
 " My Syntastic Settings
 " =====================
-nmap <c-k> :lprevious <CR>
-nmap <c-j> :lnext <CR>
 
+" Use Ctrl + k and Ctrl + j to move up/down between Syntastic errors
+" nmap <c-k> :lprevious <CR>
+" nmap <c-j> :lnext <CR>
+
+" If there's a single error, both :lprevious and :lnext should jump to it.
+function! WrapCommand(direction)
+    if a:direction == "up"
+        try
+            execute "lprevious"
+        catch /^Vim\%((\a\+)\)\=:E553/
+            execute "llast"
+        catch /^Vim\%((\a\+)\)\=:E\%(776\|42\):/
+        endtry
+    elseif a:direction == "down"
+        try
+            execute "lnext"
+        catch /^Vim\%((\a\+)\)\=:E553/
+            execute "lfirst"
+        catch /^Vim\%((\a\+)\)\=:E\%(776\|42\):/
+        endtry
+    endif
+endfunction
+
+" Use Ctrl + k and Ctrl + j to move up/down between Syntastic errors
+nmap <silent> <c-k> :call WrapCommand('up')<CR>
+nmap <silent> <c-j> :call WrapCommand('down')<CR>
 
 " -----------------------------------------------------------------------------
 " Filetype Specific Settings
