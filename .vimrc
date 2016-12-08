@@ -37,6 +37,14 @@ set undodir=~/.vim/vim_temp_files/undo/
 " https://github.com/vim-syntastic/syntastic
 " -----------------------------------------------------------------------------
 
+" Debugging Syntastic
+" ===================
+" syntastic_debug levels:
+" 1 - logs syntastic's workflow
+" 3 - logs workflow, checker's output, and location-list manipulators
+" 33 - logs workflow and checker-specific-details (e.g. version checks)
+" let g:syntastic_debug=3
+
 " Syntastic Recommended Settings
 " ==============================
 " set statusline+=%#warningmsg#
@@ -60,13 +68,14 @@ nmap <c-j> :lnext <CR>
 " -----------------------------------------------------------------------------
 
 " Import filetype-specific settings, which are split into separate files
-" within ./.vimrc_filetypes/
+" within ./filetype_vimrcs/
 let vimrc_dir = join(split(resolve(expand('<sfile>:p')), '/')[0:-2], '/')
 
-exec 'source ' . '/' . vimrc_dir . '/.vimrc_filetypes/python.vim'
-exec 'source ' . '/' . vimrc_dir . '/.vimrc_filetypes/html.vim'
-exec 'source ' . '/' . vimrc_dir . '/.vimrc_filetypes/css.vim'
-exec 'source ' . '/' . vimrc_dir . '/.vimrc_filetypes/mako.vim'
-exec 'source ' . '/' . vimrc_dir . '/.vimrc_filetypes/jinja2.vim'
-exec 'source ' . '/' . vimrc_dir . '/.vimrc_filetypes/jsx.vim'
-exec 'source ' . '/' . vimrc_dir . '/.vimrc_filetypes/json.vim'
+exec 'source ' . '/' . vimrc_dir . '/filetype_vimrcs/python.vim'
+exec 'source ' . '/' . vimrc_dir . '/filetype_vimrcs/html.vim'
+exec 'source ' . '/' . vimrc_dir . '/filetype_vimrcs/css.vim'
+exec 'source ' . '/' . vimrc_dir . '/filetype_vimrcs/mako.vim'
+exec 'source ' . '/' . vimrc_dir . '/filetype_vimrcs/jinja2.vim'
+exec 'source ' . '/' . vimrc_dir . '/filetype_vimrcs/jsx.vim'
+exec 'source ' . '/' . vimrc_dir . '/filetype_vimrcs/json.vim'
+exec 'source ' . '/' . vimrc_dir . '/filetype_vimrcs/javascript.vim'
