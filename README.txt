@@ -1,24 +1,76 @@
-This is my (maxwellgbrown) .vim & .vimrc's so they can be saved.
+=======
+mgb_vim
+=======
 
-To setup the vim settings (on unix, duh):
-1. $ cd ~
-2. $ ln -s <mgb_vim_path>/.vimrc
-3. $ ln -s <mgb_vim_path>/.vim
+This is MaxwellGBrown's .vim & .vimrc setup.
 
-I stole the apache way of thinking when it comes to enabling mods
-so I can enable/disable packages real easy.
 
-Vim plugins should be saved in mgb_vim/.vim/plugins
-Enable these plugins by making links in mgb_vim/bundle to mgb_vim/.vim/plugins
+------------
+Installation
+------------
 
-To enable a vim plugin (on unix, duh):
-1. $ cd <mgb_vim_path>/.vim/bundle
-2. $ ln -s ../plugins/<plugin_name>
+1. Go to your home directory
 
-To disable a vim plugin (duh):
-1. $ rm <mgb_vim_path>/.vim/bundle/<plugin_name>
+   $ cd ~
 
-Note that because this is a .git repo and a lot of plugins are also .git
-repos it's hard to do version control of them. So, because I'm too lazy
-to figure out how to do sub-repos, I just removed the .git files in them
-(but kept the .gitignores) so I don't have to deal with that right now.
+2. Checkout repository
+
+   $ git checkout git@github.com:MaxwellGBrown/.mgb_vim.git
+
+3. Link the .vimrc
+
+   $ ln -s .mgb_vim/.vimrc .vimrc
+
+4. Link the .vim
+
+   $ ln -s .mgb_vim/.vim .vim
+
+5. Enable vim plugins
+   (See Enabling Plugins Section)
+
+
+----------------
+Enabling Plugins
+----------------
+
+Vim plugins should be saved in mgb_vim/.vim/plugins/ as git submodules.
+
+Enable plugins by making links in mgb_vim/.vim/bundle/ to mgb_vim/.vim/plugins/
+
+
+  $ ln -s ~/.vim/plugins/<plugin_name> ~/.vim/bundle/<plugin_name>
+
+Disable plugins by deleting the symbolic link to that plugin.
+
+  $ rm ~/.vim/bundle/<plugin_name>
+
+
+--------------
+Adding Plugins
+--------------
+
+Plugins should be added to mgb_vim/.vim/plugins as git submodules.
+
+  $ git submodule add <Submodule Repository URL> mgb_vim/.vim/plugins/
+
+  $ git commit -m "Added Plugin <plugin name>"
+
+
+Don't forget to Enable the plugin after adding it!
+
+
+----------------
+Updating Plugins
+----------------
+
+Because plugins are saved as git submodules they need to be maintained as such.
+
+  $ cd mgb_vim/.vim/plugins/<plugin_directory>
+
+  $ git fetch && git pull
+
+  $ cd ..
+
+  $ git add .
+
+  $ git commit -m "Updated <plugin_name>"
