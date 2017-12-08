@@ -22,34 +22,11 @@ let python_highlight_all=1
 set autoindent
 
 " autocomplete all the things that come in pairs!
-inoremap ( ()<Esc>i
+inoremap ( ()<Left>
 inoremap ) <c-r>=ClosePair(')')<CR>
-inoremap { {}<Esc>i
+inoremap { {}<Left>
 inoremap } <c-r>=ClosePair('}')<CR>
-inoremap [ []<Esc>i
+inoremap [ []<Left>
 inoremap ] <c-r>=ClosePair(']')<CR>
 inoremap " <c-r>=QuoteDelim('"')<CR>
 inoremap ' <c-r>=QuoteDelim("'")<CR>
-
-function ClosePair(char)
-  if getline('.')[col('.') - 1] == a:char
-    return "\<Right>"
-  else
-    return a:char
-  endif
-endf
-
-function QuoteDelim(char)
-  let line = getline('.')
-  let col = col('.')
-  if line[col - 2] == "\\"
-    " Inserting a quoted quotation mark into the string
-    return a:char
-  elseif line[col - 1] == a:char && line[col - 2] != a:char
-    " Escaping out of a string
-    return "\<Right>"
-  else
-    " Starting a string
-    return a:char.a:char."\<Esc>i"
-  endif
-endf

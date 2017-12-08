@@ -6,6 +6,9 @@
 " M   M  GGG  BBB  ___   V   IIIII M   M  ..   V   IIIII M   M R  R  CCC      
 " =============================================================================
 
+set exrc
+set secure
+
 syntax on
 filetype on
 filetype plugin indent on
@@ -14,6 +17,9 @@ set ruler
 set showcmd
 
 set nobomb
+
+set backspace=indent,eol,start
+
 
 " -----------------------------------------------------------------------------
 " Pathogen
@@ -30,6 +36,33 @@ set backup
 set backupdir=~/.vim/vim_temp_files/backup/,~/tmp,.
 set undofile
 set undodir=~/.vim/vim_temp_files/undo/
+
+
+" -----------------------------------------------------------------------------
+" Pair Wrapping Used In .mgb_vim/.vim/ftplugin/
+" -----------------------------------------------------------------------------
+function ClosePair(char)
+  if getline('.')[col('.') - 1] == a:char
+    return "\<Right>"
+  else
+    return a:char
+  endif
+endf
+
+function QuoteDelim(char)
+  let line = getline('.')
+  let col = col('.')
+  if line[col - 2] == "\\"
+    " Inserting a quoted quotation mark into the string
+    return a:char
+  elseif line[col - 1] == a:char && line[col - 2] != a:char
+    " Escaping out of a string
+    return "\<Right>"
+  else
+    " Starting a string
+    return a:char.a:char."\<Left>"
+  endif
+endf
 
 
 " -----------------------------------------------------------------------------
@@ -86,20 +119,3 @@ endfunction
 " Use Ctrl + k and Ctrl + j to move up/down between Syntastic errors
 nmap <silent> <c-k> :call WrapCommand('up')<CR>
 nmap <silent> <c-j> :call WrapCommand('down')<CR>
-
-" -----------------------------------------------------------------------------
-" Filetype Specific Settings
-" -----------------------------------------------------------------------------
-
-" Import filetype-specific settings, which are split into separate files
-" within ./filetype_vimrcs/
-let vimrc_dir = join(split(resolve(expand('<sfile>:p')), '/')[0:-2], '/')
-
-exec 'source ' . '/' . vimrc_dir . '/filetype_vimrcs/python.vim'
-exec 'source ' . '/' . vimrc_dir . '/filetype_vimrcs/html.vim'
-exec 'source ' . '/' . vimrc_dir . '/filetype_vimrcs/css.vim'
-exec 'source ' . '/' . vimrc_dir . '/filetype_vimrcs/mako.vim'
-exec 'source ' . '/' . vimrc_dir . '/filetype_vimrcs/jinja2.vim'
-exec 'source ' . '/' . vimrc_dir . '/filetype_vimrcs/jsx.vim'
-exec 'source ' . '/' . vimrc_dir . '/filetype_vimrcs/json.vim'
-exec 'source ' . '/' . vimrc_dir . '/filetype_vimrcs/javascript.vim'
