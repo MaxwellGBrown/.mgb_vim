@@ -10,28 +10,26 @@ let g:syntastic_python_checkers=['flake8']
 " au FileType python command W w|call Flake8()
 
 " indenting settings
-au FileType python set softtabstop=4
-au FileType python set shiftwidth=4
-au FileType python set expandtab
-au FileType python set autoindent
-au FileType python set textwidth=79
+setlocal softtabstop=4
+setlocal shiftwidth=4
+setlocal expandtab
+setlocal autoindent
+setlocal textwidth=79
 
-" syntax highlighting
-au FileType python syntax on
-au FileType python let python_highlight_all=1
+let python_highlight_all=1
 
 " continue at the same indent level on a new line
-au FileType python set autoindent
+set autoindent
 
 " autocomplete all the things that come in pairs!
-au FileType python inoremap ( ()<Esc>i
-au FileType python inoremap ) <c-r>=ClosePair(')')<CR>
-au FileType python inoremap { {}<Esc>i
-au FileType python inoremap } <c-r>=ClosePair('}')<CR>
-au FileType python inoremap [ []<Esc>i
-au FileType python inoremap ] <c-r>=ClosePair(']')<CR>
-au FileType python inoremap " <c-r>=QuoteDelim('"')<CR>
-au FileType python inoremap ' <c-r>=QuoteDelim("'")<CR>
+inoremap ( ()<Esc>i
+inoremap ) <c-r>=ClosePair(')')<CR>
+inoremap { {}<Esc>i
+inoremap } <c-r>=ClosePair('}')<CR>
+inoremap [ []<Esc>i
+inoremap ] <c-r>=ClosePair(']')<CR>
+inoremap " <c-r>=QuoteDelim('"')<CR>
+inoremap ' <c-r>=QuoteDelim("'")<CR>
 
 function ClosePair(char)
   if getline('.')[col('.') - 1] == a:char

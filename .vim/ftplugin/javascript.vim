@@ -21,21 +21,21 @@ let g:syntastic_javascript_eslint_exec='/usr/local/bin/eslint'
 
 " the builtin javascript indenting is, much to my chagrin, oft-confused
 " autoindent just does the same indentation instead of guessing wrong.
-au BufNewFile,BufRead *.js set indentexpr&
-au BufNewFile,BufRead *.js set autoindent
+setlocal indentexpr&
+setlocal autoindent
 
-au BufNewFile,BufRead *.js set tabstop=2
-au BufNewFile,BufRead *.js set softtabstop=0
-au BufNewFile,BufRead *.js set expandtab
+setlocal tabstop=2
+setlocal softtabstop=0
+setlocal expandtab
 
 " autocomplete all the things that come in pairs!
-au BufNewFile,BufRead *.js inoremap ( ()<Esc>i
-au BufNewFile,BufRead *.js inoremap ) <c-r>=ClosePair(')')<CR>
-au BufNewFile,BufRead *.js inoremap { {}<Esc>i
-au BufNewFile,BufRead *.js inoremap } <c-r>=ClosePair('}')<CR>
-au BufNewFile,BufRead *.js inoremap [ []<Esc>i
-au BufNewFile,BufRead *.js inoremap ] <c-r>=ClosePair(']')<CR>
-au BufNewFile,BufRead *.js inoremap " <c-r>=QuoteDelim('"')<CR>
-au BufNewFile,BufRead *.js inoremap ' <c-r>=QuoteDelim("'")<CR>
+inoremap ( ()<Esc>i
+inoremap ) <c-r>=ClosePair(')')<CR>
+inoremap { {}<Esc>i
+inoremap } <c-r>=ClosePair('}')<CR>
+inoremap [ []<Esc>i
+inoremap ] <c-r>=ClosePair(']')<CR>
+inoremap " <c-r>=QuoteDelim('"')<CR>
+inoremap ' <c-r>=QuoteDelim("'")<CR>
 
-au BufNewFile,BufRead *.js let g:javascript_plugin_jsdoc=1
+let g:javascript_plugin_jsdoc=1
