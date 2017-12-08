@@ -1,5 +1,3 @@
-" autocomplete all the things that come in pairs!
-
 " -----------------------------------------------------------------------------
 " Syntastic specific linters
 " -----------------------------------------------------------------------------
@@ -18,13 +16,19 @@
    
 let g:syntastic_javascript_checkers=['eslint']
 let g:syntastic_javascript_eslint_exec='/usr/local/bin/eslint'
-let g:syntastic_javascript_eslint_args='--config ~/.vim/configs/eslintrc'
+" let g:syntastic_javascript_eslint_args='--config ~/.vim/configs/eslintrc'
 
+
+" the builtin javascript indenting is, much to my chagrin, oft-confused
+" autoindent just does the same indentation instead of guessing wrong.
+au BufNewFile,BufRead *.js set indentexpr&
+au BufNewFile,BufRead *.js set autoindent
 
 au BufNewFile,BufRead *.js set tabstop=2
 au BufNewFile,BufRead *.js set softtabstop=0
 au BufNewFile,BufRead *.js set expandtab
 
+" autocomplete all the things that come in pairs!
 au BufNewFile,BufRead *.js inoremap ( ()<Esc>i
 au BufNewFile,BufRead *.js inoremap ) <c-r>=ClosePair(')')<CR>
 au BufNewFile,BufRead *.js inoremap { {}<Esc>i
