@@ -66,6 +66,19 @@ endf
 
 
 " -----------------------------------------------------------------------------
+" Hotkey for getting next found variable during a :grep
+" -----------------------------------------------------------------------------
+
+function! CNext()
+    execute "w"
+    execute "cnext"
+endfunction
+
+nmap <silent> <c-n> :call CNext()<CR>
+
+
+
+" -----------------------------------------------------------------------------
 " Syntastic Settings
 " https://github.com/vim-syntastic/syntastic
 " -----------------------------------------------------------------------------
