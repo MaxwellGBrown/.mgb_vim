@@ -37,6 +37,13 @@ set backupdir=~/.vim/vim_temp_files/backup/,~/tmp,.
 set undofile
 set undodir=~/.vim/vim_temp_files/undo/
 
+" -----------------------------------------------------------------------------
+" Custom filetypes
+" -----------------------------------------------------------------------------
+augroup filetype_typescript
+  autocmd BufRead,BufNewFile *.ts set filetype=typescript
+  autocmd BufNewFile,BufRead *.ts set ft=typescript
+augroup END
 
 " -----------------------------------------------------------------------------
 " Pair Wrapping Used In .mgb_vim/.vim/ftplugin/
