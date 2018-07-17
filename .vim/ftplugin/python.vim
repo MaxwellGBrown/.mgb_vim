@@ -6,6 +6,7 @@ let g:syntastic_python_python_exec = "/usr/local/bin/python3"
 
 let g:syntastic_python_checkers=[]
 let g:syntastic_python_checkers=g:syntastic_python_checkers + ['flake8']
+let g:syntastic_python_checkers=g:syntastic_python_checkers + ['pycodestyle']
 let g:syntastic_python_checkers=g:syntastic_python_checkers + ['pydocstyle']
 " let g:syntastic_python_checkers=g:syntastic_python_checkers + ['pylint']
 
