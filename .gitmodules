@@ -13,3 +13,6 @@
 [submodule ".vim/plugins/vim-go"]
 	path = .vim/plugins/vim-go
 	url = git@github.com:fatih/vim-go.git
+[submodule ".vim/plugins/typescript-vim"]
+	path = .vim/plugins/typescript-vim
+	url = https://github.com/leafgarland/typescript-vim.git
