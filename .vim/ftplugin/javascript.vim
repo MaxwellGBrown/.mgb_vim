@@ -7,12 +7,6 @@
 " This was a PAIN to set up
 " You need to start by running
 "   $ npm install --global eslint
-" Then there needs to be a config file for eslint
-" 
-" Right now, eslintrc is being referenced in ~/.mgb_vim/.vim/configs/eslintrc
-" which is assuming .mgb_vim/.vim is ln -s'd to .vim.
-"
-" I couldn't get eslintrc to be read via climbing or whatever.
    
 let g:syntastic_javascript_checkers=['eslint']
 " let g:syntastic_javascript_eslint_exec='/usr/local/bin/eslint'
