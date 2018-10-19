@@ -19,7 +19,7 @@ Installation
 
    ::
 
-     $ git checkout git@github.com:MaxwellGBrown/.mgb_vim.git
+     $ git clone git@github.com:MaxwellGBrown/.mgb_vim.git
 
 3. Link the .vimrc
 
