@@ -9,9 +9,46 @@
 "   $ npm install --global eslint
    
 let g:syntastic_javascript_checkers=['eslint']
-" let g:syntastic_javascript_eslint_exec='/usr/local/bin/eslint'
+" let g:syntastic_debug=33
+" let g:syntastic_debug_file='~/debug.txt'
+" let g:syntastic_javascript_eslint_exec='$(npm bin)/eslint'
 " let g:syntastic_javascript_eslint_args='--config ~/.vim/configs/eslintrc'
 
+" vim-prettier
+" ============
+
+let g:prettier#autoformat = 0
+autocmd BufWritePre <buffer> Prettier
+
+" For some god-awful reason vim-prettier comes with overrides to the Prettier
+" styles. So let's un-set those.
+" let g:prettier#config#single_quote = 'false'
+" let g:prettier#config#braket_spacing = 'true'
+" let g:prettier#config#jsx_bracket_same_line = 'false'
+" let g:prettier#config#arrow_parens = 'false'
+" let g:prettier#config#trailing_comma = 'none'
+
+" the builtin javascript indenting is, much to my chagrin, oft-confused
+" autoindent just does the same indentation instead of guessing wrong.
+setlocal indentexpr&
+setlocal autoindent
+
+setlocal tabstop=2
+setlocal softtabstop=0
+setlocal sw=2  " Continuation indent
+setlocal expandtab
+
+" autocomplete all the things that come in pairs!
+inoremap ( ()<Left>
+inoremap ) <c-r>=ClosePair(')')<CR>
+inoremap { {}<Left>
+inoremap } <c-r>=ClosePair('}')<CR>
+inoremap [ []<Left>
+inoremap ] <c-r>=ClosePair(']')<CR>
+inoremap " <c-r>=QuoteDelim('"')<CR>
+inoremap ' <c-r>=QuoteDelim("'")<CR>
+
+let g:javascript_plugin_jsdoc=1
 
 " -----------------------------------------------------------------------------
 " syntastic-local-eslint plugin
@@ -53,25 +90,3 @@ endfun
 call s:main()
 
 
-
-" the builtin javascript indenting is, much to my chagrin, oft-confused
-" autoindent just does the same indentation instead of guessing wrong.
-setlocal indentexpr&
-setlocal autoindent
-
-setlocal tabstop=2
-setlocal softtabstop=0
-setlocal sw=2  " Continuation indent
-setlocal expandtab
-
-" autocomplete all the things that come in pairs!
-inoremap ( ()<Left>
-inoremap ) <c-r>=ClosePair(')')<CR>
-inoremap { {}<Left>
-inoremap } <c-r>=ClosePair('}')<CR>
-inoremap [ []<Left>
-inoremap ] <c-r>=ClosePair(']')<CR>
-inoremap " <c-r>=QuoteDelim('"')<CR>
-inoremap ' <c-r>=QuoteDelim("'")<CR>
-
-let g:javascript_plugin_jsdoc=1

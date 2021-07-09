@@ -1,7 +1,8 @@
 " autocomplete all the things that come in pairs!
 
-setlocal tabstop=4
+setlocal tabstop=2
 setlocal softtabstop=0
+setlocal shiftwidth=2
 setlocal expandtab
 setlocal autoindent
 

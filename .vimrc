@@ -6,12 +6,16 @@
 " M   M  GGG  BBB  ___   V   IIIII M   M  ..   V   IIIII M   M R  R  CCC      
 " =============================================================================
 
+set t_Co=16
+
 set exrc
 set secure
 
 syntax on
 filetype on
 filetype plugin indent on
+
+set background=light
 
 set ruler
 set showcmd

@@ -1,6 +1,10 @@
 " If you are looking to switch between python2 and python3 in flake8,
 " check out the MBROWN_README.txt in ~/.vimrc/bundle/flake8
 
+" Use black to autoformat on write
+" autocmd BufWritePre <buffer> Black
+" let g:load_black=1
+
 " Syntastic needs to be swapped over if you're using python3
 let g:syntastic_python_python_exec = "/usr/local/bin/python3"
 
@@ -21,9 +25,6 @@ setlocal autoindent
 setlocal textwidth=79
 
 let python_highlight_all=1
-
-" continue at the same indent level on a new line
-set autoindent
 
 " autocomplete all the things that come in pairs!
 inoremap ( ()<Left>
